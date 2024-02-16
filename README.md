@@ -1,23 +1,30 @@
-# repo-template
-Generic repo template for Plus3IT repositories
+# terraform-aws-tardigrade-ec2-account
+Module to manage EC2 account settings
 
-To use this template:
+<!-- BEGIN TFDOCS -->
+## Requirements
 
-1. Select the green "Use this template" button, or [click here](https://github.com/plus3it/repo-template/generate).
-2. Select the repo Owner, give the repo a name, enter a description, select Public or Private, and click "Create repository from template".
-3. Clone the repository and create a new branch.
-4. Edit the following files to customize them for the new repository:
-    * `LICENSE`
-        * Near the end of the file, edit the date and change the repository name
-    * `CHANGELOG.template.md`
-        * Rename to `CHANGELOG.md`, replacing the repo-template changelog
-        * Edit templated items for the new repo
-    * `.bumpversion.cfg`
-        * Edit the version number for the new repo, ask team if not sure what to
-          start with
-    * `README.md`
-        * Replace contents for the new repo
-    * `.github/`
-        * Inspect dependabot and workflow files in case changes are needed for
-          the new repo
-5. Commit the changes and open a pull request
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ec2_account"></a> [ec2\_account](#input\_ec2\_account) | Object of inputs for ec2 account settings | <pre>object({<br>    ebs_encryption_by_default = optional(object({<br>      enabled         = optional(bool, true)<br>      default_kms_key = optional(string)<br>    }), {})<br>    image_block_public_access = optional(object({<br>      state = optional(string, "block-new-sharing")<br>    }), {})<br>    serial_console_access = optional(object({<br>      enabled = optional(bool, false)<br>    }))<br>  })</pre> | `{}` | no |
+
+## Outputs
+
+No outputs.
+
+<!-- END TFDOCS -->
