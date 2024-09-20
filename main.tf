@@ -7,6 +7,10 @@ resource "aws_ebs_default_kms_key" "this" {
   key_arn = var.ec2_account.ebs_encryption_by_default.default_kms_key
 }
 
+resource "aws_ebs_snapshot_block_public_access" "this" {
+  state = var.ec2_account.ebs_snapshot_block_public_access.state
+}
+
 resource "aws_ec2_image_block_public_access" "this" {
   state = var.ec2_account.image_block_public_access.state
 }

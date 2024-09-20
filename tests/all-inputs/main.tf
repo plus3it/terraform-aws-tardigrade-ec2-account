@@ -7,6 +7,10 @@ module "ec2_account" {
       default_kms_key = null
     }
 
+    ebs_snapshot_block_public_access = {
+      state = "block-new-sharing"
+    }
+
     image_block_public_access = {
       state = "block-new-sharing"
     }
