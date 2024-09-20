@@ -5,9 +5,15 @@ variable "ec2_account" {
       enabled         = optional(bool, true)
       default_kms_key = optional(string)
     }), {})
+
+    ebs_snapshot_block_public_access = optional(object({
+      state = optional(string, "block-all-sharing")
+    }), {})
+
     image_block_public_access = optional(object({
       state = optional(string, "block-new-sharing")
     }), {})
+
     serial_console_access = optional(object({
       enabled = optional(bool, false)
     }))
