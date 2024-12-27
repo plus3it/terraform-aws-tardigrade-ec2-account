@@ -14,6 +14,13 @@ variable "ec2_account" {
       state = optional(string, "block-new-sharing")
     }), {})
 
+    instance_metadata_defaults = optional(object({
+      http_endpoint               = optional(string, "enabled")
+      http_tokens                 = optional(string, "required")
+      http_put_response_hop_limit = optional(number, 2)
+      instance_metadata_tags      = optional(string, "enabled")
+    }), {})
+
     serial_console_access = optional(object({
       enabled = optional(bool, false)
     }))
